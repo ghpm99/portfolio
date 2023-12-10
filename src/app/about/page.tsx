@@ -5,7 +5,7 @@ export default function Home() {
 	return (
 		<main className='bg-darker'>
 			<header className='flex flex-col items-center justify-center text-center'>
-                <Menu />
+            <Menu />
 				<div>
 					Logo
 				</div>
