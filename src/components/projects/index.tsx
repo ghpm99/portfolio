@@ -20,7 +20,7 @@ const Projects = () => {
 
 	return (
 		<div className='text-white'>
-			<div>Projetos</div>
+			<div id='projects'>Projetos</div>
 			<div className='flex flex-wrap justify-center'>
 				{projects.map((project) => (
 					<div

@@ -1,8 +1,12 @@
+'use-client'
+
 import About from '@/components/about'
 import Footer from '@/components/footer'
 import Menu from '@/components/menu'
 import Projects from '@/components/projects'
+import Terminal from '@/components/terminal'
 import Image from 'next/image';
+
 
 export default function Home() {
 	return (
@@ -11,6 +15,7 @@ export default function Home() {
                 <Menu />
 			</header>
 			<div className='text-nosferatu'>
+				<Terminal />
 				<Projects />
 				<About />
 			</div>
