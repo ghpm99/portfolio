@@ -19,7 +19,7 @@ const Projects = () => {
 	}, [])
 
 	return (
-		<div className='text-white'>
+		<div>
 			<div id='projects'>Projetos</div>
 			<div className='flex flex-wrap justify-center'>
 				{projects.map((project) => (
@@ -30,7 +30,7 @@ const Projects = () => {
 						<Link
 							href={project.html_url}
 							target='_blank'
-							className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'
+							className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-dracula-100'
 						>
 							{project.name}
 						</Link>

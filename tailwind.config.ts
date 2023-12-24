@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+const dracula = require('tailwind-dracula/colors')
 
 const config: Config = {
   content: [
@@ -13,6 +14,10 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors:{
+        ...dracula,
+        pinkish: dracula.buffy
+      }
     },
   },
   plugins: [

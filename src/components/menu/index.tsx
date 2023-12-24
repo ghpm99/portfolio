@@ -1,13 +1,30 @@
-import Link from 'next/link'
+import {
+	faBook,
+	faBookOpenReader,
+	faCircleInfo,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link';
 
 const Menu = () => {
-    return (
-        <div>
-            <Link href={'/'}>Inicio</Link>
-            <Link href={'/#projects'}>Projetos</Link>
-            <Link href={'/#about'}>Sobre</Link>
-        </div>
-    )
-}
+	return (
+		<div className='w-full bg-aro px-2 '>
+			<nav className='flex'>
+				<Link className='flex px-2 py-2 text-sm' href={'/'}>
+					<FontAwesomeIcon className='w-[16px] mr-1' icon={faBookOpenReader} />
+					Inicio
+				</Link>
+				<Link className='flex px-2 py-2 text-sm' href={'/#projects'}>
+					<FontAwesomeIcon className='w-[16px] mr-1' icon={faBook} />
+					Projetos
+				</Link>
+				<Link className='flex px-2 py-2 text-sm' href={'/#about'}>
+					<FontAwesomeIcon className='w-[16px] mr-1' icon={faCircleInfo} />
+					Sobre
+				</Link>
+			</nav>
+		</div>
+	);
+};
 
-export default Menu
+export default Menu;
