@@ -4,10 +4,19 @@ import { fetchProjectsData } from '@/app/lib/data';
 import Link from 'next/link';
 import { useEffect, useState } from 'react'
 
+interface IProject {
+	id: number;
+	name: string;
+	description: string;
+	homepage: string;
+	html_url: string;
+	topics: string[];
+}
+
 const Projects = () => {
 
 	const [sortProjects, setSortProjects] = useState('pushed');
-	const [projects, setProjects] = useState([]);
+	const [projects, setProjects] = useState<IProject[]>([]);
 
 	const loadProjectsData = async () => {
 		const projects = await fetchProjectsData(sortProjects);
