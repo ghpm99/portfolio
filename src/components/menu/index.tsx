@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const Menu = () => {
 	return (
-		<div className='w-full bg-aro px-2 '>
+		<div className='w-full bg-gray-950 px-2 '>
 			<nav className='flex'>
 				<Link className='flex px-2 py-2 text-sm' href={'/'}>
 					<FontAwesomeIcon className='w-[16px] mr-1' icon={faBookOpenReader} />
