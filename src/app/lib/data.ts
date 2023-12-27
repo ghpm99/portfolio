@@ -2,10 +2,35 @@
 
 import { cache } from 'react'
 
+interface IUserData {
+    login: string
+    avatar_url: string
+    html_url: string
+    name: string
+    bio: string
+    company: string
+    location: string
+    email: string
+    twitter_username: string
+    public_repos: number
+    public_gists: number
+    followers: number
+    following: number
+    created_at: string
+    updated_at: string
+}
+
 export const fetchUserData = cache(async () => {
     const res = await fetch('https://api.github.com/users/ghpm99')
-    const data = await res.json()
-    return data
+
+    const data: IUserData = await res.json()
+
+    return {
+        avatar: data.avatar_url,
+        url: data.html_url,
+        name: data.name,
+        bio: data.bio,
+    }
 })
 
 export const fetchProjectsData = cache(async (sort: string) => {

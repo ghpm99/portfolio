@@ -1,10 +1,14 @@
-'use client'
+'use server'
 
-const User = ({name}: {name: string}) => {
+import { fetchUserData } from '@/app/lib/data'
+
+const User = async() => {
+
+    const userData = await fetchUserData();
 
     return (
         <div>
-            {name}
+            {userData.name}
         </div>
     )
 }

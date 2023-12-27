@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { fetchProjectsData } from '@/app/lib/data';
-import Link from 'next/link';
+import { fetchProjectsData } from '@/app/lib/data'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 interface IProject {
@@ -13,19 +13,20 @@ interface IProject {
 	topics: string[];
 }
 
-const Projects = () => {
-
+const Projects = ({log}: {log: (data: string) => void}) => {
 	const [sortProjects, setSortProjects] = useState('pushed');
 	const [projects, setProjects] = useState<IProject[]>([]);
 
 	const loadProjectsData = async () => {
 		const projects = await fetchProjectsData(sortProjects);
-        setProjects(projects)
-    }
+		setProjects(projects);
+		log('Projetos carregados!')
+	};
 
 	useEffect(() => {
+		log('Carregando projetos...')
 		loadProjectsData();
-	}, [])
+	}, []);
 
 	return (
 		<div>
