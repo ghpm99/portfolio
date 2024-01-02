@@ -10,7 +10,7 @@ const Terminal = ({data} : {data: string[]}) => {
 			</div>
 			<div className='bg-[#303030] text-[#EFEFEF] p-8 rounded-md'>
 				{data && data.map((log: string, index: number) => (
-					<div key={index}>{log}</div>
+					<div key={index}>$ {log}</div>
 				))}
 			</div>
 		</div>

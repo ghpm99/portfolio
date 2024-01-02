@@ -1,8 +1,8 @@
 'use client';
 
-import { fetchProjectsData } from '@/app/lib/data'
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { fetchProjectsData } from '@/app/lib/data';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface IProject {
 	id: number;
@@ -15,25 +15,25 @@ interface IProject {
 	pushed_at: string;
 }
 
-const Projects = ({log}: {log: (data: string) => void}) => {
+const Projects = ({ log }: { log: (data: string) => void }) => {
 	const [sortProjects, setSortProjects] = useState('pushed');
 	const [projects, setProjects] = useState<IProject[]>([]);
 
 	const loadProjectsData = async () => {
 		const projects = await fetchProjectsData(sortProjects);
 		setProjects(projects);
-		log('Projetos carregados!')
+		log('Projetos carregados!');
 	};
 
 	useEffect(() => {
-		log('Carregando projetos...')
+		log('Carregando projetos...');
 		loadProjectsData();
 	}, []);
 
 	const formatData = (data: string) => {
 		const date = new Date(data);
 		return date.toLocaleDateString();
-	}
+	};
 
 	return (
 		<div>
@@ -42,41 +42,52 @@ const Projects = ({log}: {log: (data: string) => void}) => {
 				{projects.map((project) => (
 					<div
 						key={project.id}
-						className='block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-4 w-[300px] h-[600px]'
+						className='flex flex-wrap content-between max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-4 w-[300px] h-[600px]'
 					>
-						<Link
-							href={project.html_url}
-							target='_blank'
-							className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-dracula-100'
-						>
-							{project.name}
-						</Link>
-						<div className='font-normal text-gray-700 dark:text-gray-400'>
-							{project.description}
-						</div>
-						{project.homepage && (
-							<div>
-								Url:{' '}
-								<Link href={project.homepage} target='_blank'>
-									{project.homepage}
-								</Link>
+						<div>
+							<Link
+								href={project.html_url}
+								target='_blank'
+								className='mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-gray-100'
+							>
+								{project.name}
+							</Link>
+							<div className='font-normal text-gray-700 dark:text-gray-400'>
+								{project.description}
 							</div>
-						)}
-						<div className='mt-4'>
-							{project.topics.map((topic) => (
-								<span
-									key={topic}
-									className='inline-block px-3 py-1 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-200 mb-2'
-								>
-									{topic}
-								</span>
-							))}
+							{project.homepage && (
+								<div>
+									Url:{' '}
+									<Link href={project.homepage} target='_blank'>
+										{project.homepage}
+									</Link>
+								</div>
+							)}
+							<div className='mt-4'>
+								{project.topics.map((topic) => (
+									<span
+										key={topic}
+										className='inline-block px-3 py-1 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-200 mb-2'
+									>
+										{topic}
+									</span>
+								))}
+							</div>
 						</div>
 						<div>
 							<div>
-							{project.language}
+								{project.language && (
+									<div className='inline-block px-3 py-1 mr-2 text-sm font-semibold text-gray-700 bg-purple-200 rounded-full dark:bg-purple-700 dark:text-gray-200 mb-2'>
+										{project.language}
+									</div>
+								)}
+								<span className='font-normal text-xs text-gray-700 dark:text-gray-400'>
+									<div>
+										Ultima atualização:{' '}
+										<span>{formatData(project.pushed_at)}</span>
+									</div>
+								</span>
 							</div>
-							<span>Ultima atualização: {formatData(project.pushed_at)}</span>
 						</div>
 					</div>
 				))}
