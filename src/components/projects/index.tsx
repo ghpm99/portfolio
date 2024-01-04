@@ -4,6 +4,12 @@ import { fetchProjectsData } from '@/app/lib/data';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+import {
+	faFileLines,
+	faUpRightFromSquare,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 interface IProject {
 	id: number;
 	name: string;
@@ -51,6 +57,7 @@ const Projects = ({ log }: { log: (data: string) => void }) => {
 								className='mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-gray-100'
 							>
 								{project.name}
+								<FontAwesomeIcon className='ml-2' icon={faUpRightFromSquare} />
 							</Link>
 							<div className='font-normal text-gray-700 dark:text-gray-400'>
 								{project.description}
@@ -74,19 +81,25 @@ const Projects = ({ log }: { log: (data: string) => void }) => {
 								))}
 							</div>
 						</div>
-						<div>
+						<div className='w-[100%]'>
 							<div>
-								{project.language && (
-									<div className='inline-block px-3 py-1 mr-2 text-sm font-semibold text-gray-700 bg-purple-200 rounded-full dark:bg-purple-700 dark:text-gray-200 mb-2'>
-										{project.language}
-									</div>
-								)}
-								<span className='font-normal text-xs text-gray-700 dark:text-gray-400'>
+								<div className='flex flex-row-reverse justify-between mb-2 items-center'>
+									<Link href={`/project/${project.id}`}>
+										Detalhes
+										<FontAwesomeIcon className='ml-2' icon={faFileLines} />
+									</Link>
+									{project.language && (
+										<div className='inline-block px-3 py-1 mr-2 text-sm font-semibold text-gray-700 bg-purple-200 rounded-full dark:bg-purple-700 dark:text-gray-200'>
+											{project.language}
+										</div>
+									)}
+								</div>
+								<div className='font-normal text-xs text-gray-700 dark:text-gray-400'>
 									<div>
 										Ultima atualização:{' '}
 										<span>{formatData(project.pushed_at)}</span>
 									</div>
-								</span>
+								</div>
 							</div>
 						</div>
 					</div>

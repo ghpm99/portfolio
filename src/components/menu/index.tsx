@@ -12,15 +12,15 @@ const Menu = () => {
 	return (
 		<div className='w-full bg-gray-950 px-2 '>
 			<nav className='flex'>
-				<Link className='flex px-2 py-2 text-sm' href={'/'}>
+				<Link className='flex items-center px-2 py-2 text-sm' href={'/'}>
 					<FontAwesomeIcon className='w-[16px] mr-1' icon={faBookOpenReader} />
 					Inicio
 				</Link>
-				<Link className='flex px-2 py-2 text-sm' href={'/#projects'}>
+				<Link className='flex items-center px-2 py-2 text-sm' href={'/#projects'}>
 					<FontAwesomeIcon className='w-[16px] mr-1' icon={faBook} />
 					Projetos
 				</Link>
-				<Link className='flex px-2 py-2 text-sm' href={'/#about'}>
+				<Link className='flex items-center px-2 py-2 text-sm' href={'/#about'}>
 					<FontAwesomeIcon className='w-[16px] mr-1' icon={faCircleInfo} />
 					Sobre
 				</Link>

@@ -6,7 +6,7 @@ const Footer = () => {
 	return (
 		<footer>
 			<div className='flex items-center'>
-				Redes sociais:
+				Caso tenha interesse em me conhecer melhor, acesse minhas redes
 				<Link href={'https://github.com/ghpm99'}>
 					<FontAwesomeIcon
 						className='w-[27px] h-[27px] ml-1.5'
