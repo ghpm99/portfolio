@@ -1,17 +1,21 @@
 'use client';
 
+import { fetchProjectDetailData } from '@/app/lib/data'
 import Menu from '@/components/menu';
 import { useParams } from 'next/navigation';
 
 const DetailWrapper = ({
 	avatar,
 	user,
+	name
 }: {
 	avatar: React.JSX.Element;
 	user: React.JSX.Element;
+	name: string
 }) => {
-	const { id } = useParams();
 
+	const data = fetchProjectDetailData(name);
+	console.log(data)
 	return (
 		<>
 			<header className='flex flex-col items-center justify-center text-center'>
@@ -23,7 +27,7 @@ const DetailWrapper = ({
 					<div className='col-start-2 border-solid border-2 border-nosferatu-800 rounded-md p-4'>
 						{user}
 						<hr className='h-px my-8 bg-darker border-0' />
-						{id}
+						{name}
 					</div>
 				</div>
 			</div>

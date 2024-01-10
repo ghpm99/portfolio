@@ -84,7 +84,7 @@ const Projects = ({ log }: { log: (data: string) => void }) => {
 						<div className='w-[100%]'>
 							<div>
 								<div className='flex flex-row-reverse justify-between mb-2 items-center'>
-									<Link href={`/project/${project.id}`}>
+									<Link href={`/project/${project.name}`}>
 										Detalhes
 										<FontAwesomeIcon className='ml-2' icon={faFileLines} />
 									</Link>

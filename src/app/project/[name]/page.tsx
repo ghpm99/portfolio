@@ -4,10 +4,10 @@ import Avatar from '@/components/avatar'
 import DetailWrapper from '@/components/detailWrapper'
 import User from '@/components/user'
 
-const ProjectDetail = () => {
+const ProjectDetail = ({ params }: { params: { name: string } }) => {
     return (
 		<main>
-			<DetailWrapper avatar={<Avatar />} user={<User />}/>
+			<DetailWrapper avatar={<Avatar />} user={<User />} name={params.name}/>
 		</main>
 	);
 };

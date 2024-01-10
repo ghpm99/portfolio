@@ -45,3 +45,12 @@ export const fetchProjectsData = cache(async (sort: string) => {
 	const data = await res.json();
 	return data;
 });
+
+export const fetchProjectDetailData = cache(async (name: string) => {
+	const res = await fetch(
+		`https://api.github.com/users/ghpm99/repos/${name}`,
+		{ next: { revalidate: revalidate } }
+	);
+	const data = await res.json();
+	return data;
+})
