@@ -1,16 +1,17 @@
 'use server';
 
-import Avatar from '@/components/avatar'
-import LayoutWrapper from '@/components/layoutWrapper'
-import User from '@/components/user'
+import Avatar from '@/components/avatar';
+import LayoutWrapper from '@/components/layoutWrapper';
+import User from '@/components/user';
 
 const Home = () => {
 	return (
-		<main>
-			<LayoutWrapper avatar={<Avatar />} user={<User />}/>
-		</main>
+		<div className='bg-zinc-950 dark:bg-white'>
+			<main>
+				<LayoutWrapper avatar={<Avatar />} user={<User />} />
+			</main>
+		</div>
 	);
 };
 
 export default Home;
-
