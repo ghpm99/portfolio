@@ -6,7 +6,7 @@ import User from '@/components/user';
 
 const Home = () => {
 	return (
-		<div className='bg-zinc-950 dark:bg-white'>
+		<div className='bg-background text-foreground'>
 			<main>
 				<LayoutWrapper avatar={<Avatar />} user={<User />} />
 			</main>

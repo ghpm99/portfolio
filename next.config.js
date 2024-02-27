@@ -5,7 +5,12 @@ const nextConfig = {
             hostname: 'avatars.githubusercontent.com'
         },{
             hostname: 'github.com'
-        }]
+        },{
+            hostname: 'img.shields.io'
+        },{
+            hostname: 'github-readme-stats.vercel.app'
+        }],
+        dangerouslyAllowSVG: true,
     }
 }
 
