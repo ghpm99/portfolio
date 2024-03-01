@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const About = () => {
 	return (
 		<div>
@@ -5,13 +7,11 @@ const About = () => {
 			<div>
 				<p>
 					Olá, meu nome é <span className='text-nosferatu-500'>Guilherme</span>{' '}
-					e sou um desenvolvedor{' '}
+					e sou desenvolvedor{' '}
 					<span className='text-nosferatu-500'>Fullstack</span>.
 				</p>
 				<p>
-					Atualmente trabalho como desenvolvedor{' '}
-					<span className='text-nosferatu-500'>Front-end </span>
-					utilizando principalmente a tecnologia{' '}
+					Atualmente trabalho na area utilizando principalmente a tecnologia{' '}
 					<span className='text-nosferatu-500'>React</span>.
 				</p>
 				<p>

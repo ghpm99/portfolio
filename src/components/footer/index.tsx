@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Footer = () => {
 	return (
 		<footer>
-			<div className='flex items-center'>
+			<div className='flex items-center justify-center'>
 				Caso tenha interesse em me conhecer melhor, acesse minhas redes
 				<Link href={'https://github.com/ghpm99'}>
 					<FontAwesomeIcon
