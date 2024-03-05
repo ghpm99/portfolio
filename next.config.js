@@ -9,6 +9,8 @@ const nextConfig = {
             hostname: 'img.shields.io'
         },{
             hostname: 'github-readme-stats.vercel.app'
+        }, {
+            hostname: 'cdn.seeklearning.com.au'
         }],
         dangerouslyAllowSVG: true,
     }

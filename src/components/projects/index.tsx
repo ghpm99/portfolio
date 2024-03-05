@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { faFileLines, faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
 
 interface IProject {
     id: number;
@@ -40,7 +41,7 @@ const Projects = ({ log }: { log: (data: string) => void }) => {
     };
 
     return (
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-wrap justify-center gap-8 ">
             {projects.map((project) => (
                 <Card key={project.id} className="w-[40%] min-w-[320px]">
                     <CardHeader>
@@ -57,19 +58,31 @@ const Projects = ({ log }: { log: (data: string) => void }) => {
                         <CardDescription>{project.description}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <div className="mt-4">
-                            {project.topics.map((topic) => (
-                                <span
-                                    key={topic}
-                                    className="inline-block px-3 py-1 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-200 mb-2"
-                                >
-                                    {topic}
-                                </span>
-                            ))}
+                        <div className="w-[100%]">
+                            <Image
+                                src={
+                                    "https://cdn.seeklearning.com.au/media/images/career-guide/module/developer-module.jpg"
+                                }
+                                alt="image"
+                                width={300}
+                                height={300}
+                            />
+                        </div>
+                        <div className="mt-4 h-[55px]">
+                            <div className="overflow-auto flex">
+                                {project.topics.map((topic) => (
+                                    <span
+                                        key={topic}
+                                        className="inline-block px-3 py-1 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-200 mb-2  whitespace-nowrap"
+                                    >
+                                        {topic}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </CardContent>
                     <CardFooter>
-                        <div>
+                        <div className="w-[100%]">
                             <div className="flex flex-row-reverse justify-between mb-2 items-center">
                                 <Link href={`/project/${project.name}`}>
                                     Detalhes
